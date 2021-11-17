@@ -31,5 +31,5 @@ function callAPI() {
     });
 };
 
-getBtn.
+getBtn.clickevent();
 callAPI();
