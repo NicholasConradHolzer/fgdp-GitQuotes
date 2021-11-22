@@ -1,11 +1,13 @@
-var apiKey = ;
-var apiURL = ;
-var apiTemp= ;
-var getBtn = document.querySelector(getBtn);
-var displayBox = document.querySelector(displayBox);
-var quoteDisp = document.querySelector(quoteDisp);
-var pictureDisp = document.querySelector(pictureDisp);
-var videoDisp = document.querySelector(videoDisp);
+// var apiKey = ;
+// var apiURL = ;
+// var apiTemp= ;
+var getBtn = document.querySelector("#getBtn");
+var displayBox = document.querySelector("#displayBox");
+var quoteDisp = document.querySelector("#quoteDisp");
+var pictureDisp = document.querySelector("#pictureDisp");
+var videoDisp = document.querySelector("#videoDisp");
+var genreEl= document.getElementById("Genre");
+
 
 
 function callAPI() {
