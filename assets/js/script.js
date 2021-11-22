@@ -1,6 +1,6 @@
-var apiKey = ;
-var apiURL = ;
-var apiTemp= ;
+// var apiKey = ;
+// var apiURL = ;
+// var apiTemp= ;
 var getBtn = document.querySelector(getBtn);
 var displayBox = document.querySelector(displayBox);
 var quoteDisp = document.querySelector(quoteDisp);
