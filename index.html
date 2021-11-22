@@ -6,20 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fly Guy Development Partners take you on a wild ride through your favorite movie quotes.">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <title>GitQuotes</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Random Movie</title>
 </head>
 <body>
-    <header>
-        <h1>GitQuotes</h1>
+    <header class="my-10 -mx-15">
+        <h1 class="text-gray-200 text-6xl text-center">Get A Random Movie</h1>
     </header>
 
-
     <main>
-        <button id="getBtn">Get Quote</button>
-        <section id="displayBox">
-            <div id="quoteDisp">Quote Appears Here</div>
-            <div id="pictureDisp">text.jpg</div>
-            <div id="videoDisp">text.mp4</div>
+        <section class="my-40">
+            <p class="text-gray-200 text-center text-lg">Discover something new and amazing to watch.</p>
+        </section>
+        <section class="bg-danger bg-opacity-5">
+            <h2>Select a Genre</h2>
+            <select id="Genre">
+                <option>Random</option>
+                <option>Action</option>
+                <option>Drama</option>
+                <option>Comedy</option>
+                <option>Romance</option>
+                <option>Sci-fi/Fantasy</option>
+                <option>Horror</option>
+            </select>
+            <h2>Select a Rating</h2>
+            <select id="Rating">
+                <option>G</option>
+                <option>PG</option>
+                <option>PG-13</option>
+                <option>R</option>
+            </select>
+            <h2>How Much Time do you have?</h2>
+            <select id="Timelimit">
+                <option>60 Minutes or Less</option>
+                <option>60-90 Minutes</option>
+                <option>90-120</option>
+                <option>120+</option>
+            </select>
+            <h2>Press the Button Below to find the Right Movie</h2>
+            <button class=" btn text-gray-200 place-item-center" type="submit">Find Your movie</button>
         </section>
     </main>
 
