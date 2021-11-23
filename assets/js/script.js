@@ -19,6 +19,7 @@ var parameters = function (event){
     return res.json();
     })
     .then(function (data){
+        console.log(data.total_results);
         console.log(data);
     })
     .catch(function (err) {
