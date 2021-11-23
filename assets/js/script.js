@@ -1,35 +1,19 @@
-// var apiKey = ;
-// var apiURL = ;
+var apiKey = "4a28d039438d8964f8454bc9ec5e51f1";
+var apiPoster= "https://www.omdbapi.com/?apikey=c1be519f&";
+var apiGenreURL = `https://api.themoviedb.org/3/genre/movie/list?api_key=4a28d039438d8964f8454bc9ec5e51f1&language=en-US`;
 // var apiTemp= ;
-var getBtn = document.querySelector(getBtn);
-var displayBox = document.querySelector(displayBox);
-var quoteDisp = document.querySelector(quoteDisp);
-var pictureDisp = document.querySelector(pictureDisp);
-var videoDisp = document.querySelector(videoDisp);
+var genreEl = document.getElementById("Genre");
+var subGenreEl = document.getElementById("Subgenre");
+// var timeEl= document.getElementById("Timelimit")
+var clickbtn = document.querySelector("#randmovie");
 
+var parameters = function (){
+    var genreSelected = genreEl.options[genreEl.selectedIndex].val;
+    var subGenreSelected = subGenreEl.options[subGenreEl.selectedIndex].text;
+    // var timeLimit= timeEl.options[timeEl.selectedIndex].text
+    console.log(genreSelected)
+    console.log(subGenreSelected);
+    // console.log(timeLimit);
+}
 
-
-function callAPI() {
-    fetch(apiURL)
-    .then(function (res) {
-        return res.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    
-    // var h1El= document.createElement('h1');
-    // h1El.setAttribute("class", "h1El");
-    // h1El.textContent = bob.name;
-    // dynamic.appendChild(h1El);
-
-    // h2El.textContent = "Temp: " + bob.main.temp + " degrees F";
-    // dynamic.appendChild(h2El);
-
-    })
-    .catch(function (err) {
-        console.error(err);
-    });
-};
-
-
-callAPI();
+clickbtn.addEventListener("click", parameters);
