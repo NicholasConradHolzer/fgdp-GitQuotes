@@ -4,7 +4,7 @@ var genreEl = document.getElementById("Genre");
 var subGenreEl = document.getElementById("Subgenre");
 var clickbtn = document.getElementById("randmovie");
 
-var parameters = function (){
+var parameters = function (event){
     var genreSelected = genreEl.options[genreEl.selectedIndex].value;
     var subGenreSelected = ("," + subGenreEl.options[subGenreEl.selectedIndex].value);
     parseInt(genreSelected , subGenreSelected);
@@ -13,7 +13,17 @@ var parameters = function (){
     }
     var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
     "&with_genres=" + genreSelected + subGenreSelected;
-
+    event.preventDefault();
+    fetch(apiGenreURL)
+    .then(function(res) {
+    return res.json();
+    })
+    .then(function (data){
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.error(err);
+    })
     console.log(genreSelected)
     console.log(subGenreSelected);
 }
