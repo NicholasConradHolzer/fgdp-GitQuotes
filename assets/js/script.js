@@ -8,8 +8,8 @@ var subGenreEl = document.getElementById("Subgenre");
 
 
 function parameters(){
-    var genreSelected = genreEl.options[genreEl.selectedIndex].text;
-    var subGenreSelected = subGenreEl.options[subGenreEl.selectedIndex].text;
+    var genreSelected = genreEl.options[genreEl.selectedIndex].value;
+    var subGenreSelected = subGenreEl.options[subGenreEl.selectedIndex].value;
     // var timeLimit= timeEl.options[timeEl.selectedIndex].text
     console.log(genreSelected)
     console.log(subGenreSelected);
