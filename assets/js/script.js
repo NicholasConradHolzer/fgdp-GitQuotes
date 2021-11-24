@@ -1,5 +1,5 @@
 var apiKey = "4a28d039438d8964f8454bc9ec5e51f1";
-var apiPoster= "https://www.omdbapi.com/?apikey=c1be519f&";
+var apiPoster= "https://www.omdbapi.com/?apikey=c1be519f&t=";
 var genreEl = document.getElementById("Genre");
 var subGenreEl = document.getElementById("Subgenre");
 var clickbtn = document.getElementById("randmovie");
@@ -12,7 +12,7 @@ var parameters = function (event){
         var subGenreSelected = ""
     }
     var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
-    "&with_genres=" + genreSelected + subGenreSelected;
+    "&language=en&with_genres=" + genreSelected + subGenreSelected;
     event.preventDefault();
     fetch(apiGenreURL)
     .then(function(res) {
@@ -37,28 +37,42 @@ var parameters = function (event){
         // Take random page, add it to api search/call with random 
         // movie position in array
         var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
-        "&with_genres=" + genreSelected + subGenreSelected +"&page=" +RandomResultsPage;
+        "&language=en&with_genres=" + genreSelected + subGenreSelected +"&page=" +RandomResultsPage;
         console.log(apiGenreURL);
-       
         // call api again with that info
+        fetch(apiGenreURL)
+    .then(function(res2) {
+        return res2.json();
+    })
+    .then(function (conciseData){
+        console.log(conciseData.results[randomResultfromPage])
+        var movie = conciseData.results[randomResultfromPage]
+        var movieTitle= movie.title
+        console.log(movieTitle)
+        var poster=apiPoster+movieTitle
+        console.log(poster)
         // get title from second api call, pass it through second api (omdb) 
         // to get poster
+        fetch(poster)
+        .then(function(res3){
+        return res3.json();
+        })
+        .then(function(poster){
+            console.log(poster)
+            var imgEl= poster.Poster
+            console.log(imgEl)
+        })
         // Populate title, tagline (mayber other info?) from first api, populate
         //  poster with second api.
     })
     .catch(function (err) {
         console.error(err);
+    });
     })
-    fetch(apiGenreURL)
-    .then(function(res2) {
-        return res2.json();
-    }
-    .then(function (conciseData)) {
-        console.log(conciseData)
-    }
     .catch(function (err) {
         console.error(err);
     })
+    
     console.log(genreSelected)
     console.log(subGenreSelected);
 }
