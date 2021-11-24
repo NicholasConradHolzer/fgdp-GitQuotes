@@ -23,14 +23,39 @@ var parameters = function (event){
         var resultsParam= data.total_results
         console.log(resultsParam);
         // Use resultsParam to randomly select a movie
+        var randomResult= Math.floor(Math.random()*resultsParam);
+        console.log(randomResult)
         // Max results per page = 20
-        // we will want to divide resultsParam by 20( example 35/20= 1.75), drop the decimal values, then add 1 to get the page number
-        // once we have a page number, we want to randomly select a number 1-20, subtract 1, (or randInt 0-19) to get a random title
-        // Take random page, add it to api search/call with random movie position in array
+        // we will want to divide resultsParam by 20( example 35/20= 1.75),
+        //  drop the decimal values, then add 1 to get the page number
+        var RandomResultsPage= Math.ceil(randomResult/20)
+        console.log(RandomResultsPage)
+        // once we have a page number, we want to randomly select a number 1-20,
+        //  subtract 1, (or randInt 0-19) to get a random title
+        var randomResultfromPage= Math.floor(Math.random()*20)
+        console.log(randomResultfromPage)
+        // Take random page, add it to api search/call with random 
+        // movie position in array
+        var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
+        "&with_genres=" + genreSelected + subGenreSelected +"&page=" +RandomResultsPage;
+        console.log(apiGenreURL);
+       
         // call api again with that info
-        // get title from second api call, pass it through second api (omdb) to get poster
-        // Populate title, tagline (mayber other info?) from first api, populate poster with second api.
+        // get title from second api call, pass it through second api (omdb) 
+        // to get poster
+        // Populate title, tagline (mayber other info?) from first api, populate
+        //  poster with second api.
     })
+    .catch(function (err) {
+        console.error(err);
+    })
+    fetch(apiGenreURL)
+    .then(function(res2) {
+        return res2.json();
+    }
+    .then(function (conciseData)) {
+        console.log(conciseData)
+    }
     .catch(function (err) {
         console.error(err);
     })
