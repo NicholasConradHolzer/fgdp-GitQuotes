@@ -63,10 +63,10 @@ var parameters = function (event){
             console.log(imgEl)
             var contentGenerator = function() {
             var contentLander= document.getElementById("contentLander")
-            // contentLander.className =
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
             var titleContent = document.createElement("h2")
+            titleContent.classList ="content"
             titleContent.textContent = (movieTitle);
             contentLander.appendChild(titleContent);
             contentLander.appendChild(posterItem);
