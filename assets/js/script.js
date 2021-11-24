@@ -53,7 +53,7 @@ var parameters = function (event){
     .then(function(res2) {
         return res2.json();
     }
-    .then(function (conciseData)) {
+    .then(function (conciseData) {
         console.log(conciseData)
     }
     .catch(function (err) {
