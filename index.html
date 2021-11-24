@@ -12,58 +12,62 @@
 <body>
     <header class="my-10 -mx-15">
         <h1 class="text-gray-200 text-6xl text-center">Get A Random Movie</h1>
+        <p class=" text-gray-200 text-center text-lg">Discover something new and amazing to watch.</p>
     </header>
 
     <main>
-        <section class="my-40">
-            <p class=" text-gray-200 text-center text-lg">Discover something new and amazing to watch.</p>
-        </section>
         <section class="bg-danger bg-opacity-5">
-            <h2 class="text-white">Select a Genre</h2>
-            <select id="Genre">
-                <!--movie genre values need to match genre ids presented within the tmdb apigenrelist-->
-                <option value="">Random</option>
-                <option value="28">Action</option>
-                <option value="12">Adventure</option>
-                <option value="16">Animation</option>
-                <option value="80">Crime</option>
-                <option value="99">Documentary</option>
-                <option value="10751">Damily</option>
-                <option value="36">History</option>
-                <option value="10402">Music</option>
-                <option value="9648">Mystery</option>
-                <option value="878">Science Fiction</option>
-                <option value="10770">TV Movie</option>
-                <option value="53">Thriller</option>
-                <option value="10752">War</option>
-                <option value="18">Drama</option>
-                <option value="35">Comedy</option>
-                <option value="10479">Romance</option>
-                <option value="14">Fantasy</option>
-                <option value="27">Horror</option>
-            </select>
-            <h2 class="text-white">Select a Sub-Genre(Optional)</h2>
-            <select id="Subgenre">
-                <option value="">Random</option>
-                <option value="28">Action</option>
-                <option value="12">Adventure</option>
-                <option value="16">Animation</option>
-                <option value="80">Crime</option>
-                <option value="99">Documentary</option>
-                <option value="10751">Damily</option>
-                <option value="36">History</option>
-                <option value="10402">Music</option>
-                <option value="9648">Mystery</option>
-                <option value="878">Science Fiction</option>
-                <option value="10770">TV Movie</option>
-                <option value="53">Thriller</option>
-                <option value="10752">War</option>
-                <option value="18">Drama</option>
-                <option value="35">Comedy</option>
-                <option value="10479">Romance</option>
-                <option value="14">Fantasy</option>
-                <option value="27">Horror</option>
-            </select>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="p-2 bg-gray-600 bg-opacity-95 rounded">
+                    <h2 class="text-white content-center">Select a Genre</h2>
+                    <select id="Genre">
+                        <!--movie genre values need to match genre ids presented within the tmdb apigenrelist-->
+                        <option value="">Random</option>
+                        <option value="28">Action</option>
+                        <option value="12">Adventure</option>
+                        <option value="16">Animation</option>
+                        <option value="80">Crime</option>
+                        <option value="99">Documentary</option>
+                        <option value="10751">Damily</option>
+                        <option value="36">History</option>
+                        <option value="10402">Music</option>
+                        <option value="9648">Mystery</option>
+                        <option value="878">Science Fiction</option>
+                        <option value="10770">TV Movie</option>
+                        <option value="53">Thriller</option>
+                        <option value="10752">War</option>
+                        <option value="18">Drama</option>
+                        <option value="35">Comedy</option>
+                        <option value="10479">Romance</option>
+                        <option value="14">Fantasy</option>
+                        <option value="27">Horror</option>
+                    </select>
+                </div>
+                <div class="p-2 bg-gray-600 bg-opacity-95 rounded">
+                    <h2 class="text-white">Select a Sub-Genre</h2>
+                    <select id="Subgenre">
+                        <option value="">(Optional)</option>
+                        <option value="28">Action</option>
+                        <option value="12">Adventure</option>
+                        <option value="16">Animation</option>
+                        <option value="80">Crime</option>
+                        <option value="99">Documentary</option>
+                        <option value="10751">Damily</option>
+                        <option value="36">History</option>
+                        <option value="10402">Music</option>
+                        <option value="9648">Mystery</option>
+                        <option value="878">Science Fiction</option>
+                        <option value="10770">TV Movie</option>
+                        <option value="53">Thriller</option>
+                        <option value="10752">War</option>
+                        <option value="18">Drama</option>
+                        <option value="35">Comedy</option>
+                        <option value="10479">Romance</option>
+                        <option value="14">Fantasy</option>
+                        <option value="27">Horror</option>
+                </select>
+                </div>
+            </div>
             <!-- <h2>How Much Time do you have?</h2>
             <select id="Timelimit">
                 <option>60 Minutes or Less</option>
@@ -72,9 +76,9 @@
                 <option>120+</option>
             </select> -->
             <h2 class="text-white">Press the Button Below to find the Right Movie</h2>
+            <container id="contentLander"></container>
             <button id="randmovie" class=" btn text-gray-200 place-item-center" type="submit">Find Your movie</button>
         </section>
-        <container id="contentLander"></container>
     </main>
 
 
