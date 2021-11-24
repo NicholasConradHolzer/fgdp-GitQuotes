@@ -61,9 +61,25 @@ var parameters = function (event){
             console.log(poster)
             var imgEl= poster.Poster
             console.log(imgEl)
+            var contentGenerator = function() {
+            var contentLander= document.getElementById("contentLander")
+            // contentLander.className =
+            var posterItem = document.createElement("img");
+            posterItem.src = imgEl;
+            var titleContent = document.createElement("h2")
+            titleContent.textContent = (movieTitle);
+            contentLander.appendChild(titleContent);
+            contentLander.appendChild(posterItem);
+            }
+            contentGenerator();
         })
         // Populate title, tagline (mayber other info?) from first api, populate
         //  poster with second api.
+        // 
+        // Error catcher
+        // "We Couldn't Fetch a movie with that sub-genre"
+        // Error 422
+        // 
     })
     .catch(function (err) {
         console.error(err);
