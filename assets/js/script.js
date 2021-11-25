@@ -7,6 +7,9 @@ var clickbtn = document.getElementById("randmovie");
 var parameters = function (event){
     var genreSelected = genreEl.options[genreEl.selectedIndex].value;
     var subGenreSelected = ("," + subGenreEl.options[subGenreEl.selectedIndex].value);
+    var contentLander= document.getElementById("contentLander")
+    contentLander.innerHTML="";
+    var titleContent = document.createElement("h2");
     parseInt(genreSelected , subGenreSelected);
     if (subGenreSelected===0) {
         var subGenreSelected = ""
@@ -42,6 +45,12 @@ var parameters = function (event){
         // call api again with that info
         fetch(apiGenreURL)
     .then(function(res2) {
+        console.log(res2)
+        if(res2.ok === false){
+            titleContent.textContent= "We Could Not Fetch a Movie with that Sub-Genre, Please Try Again.";
+            contentLander.appendChild(titleContent);
+            console.log("hello")
+        }
         return res2.json();
     })
     .then(function (conciseData){
@@ -62,13 +71,9 @@ var parameters = function (event){
             var imgEl= poster.Poster
             console.log(imgEl)
             var contentGenerator = function() {
-            var contentLander= document.getElementById("contentLander")
-            contentLander.innerHTML=""
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
             posterItem.classList.add("w-64")
-            var titleContent = document.createElement("h2")
-            titleContent.classList ="content"
             titleContent.textContent = (movieTitle);
             contentLander.appendChild(titleContent);
             contentLander.appendChild(posterItem);
