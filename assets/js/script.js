@@ -78,10 +78,14 @@ var parameters = function (event){
         // Populate title, tagline (mayber other info?) from first api, populate
         //  poster with second api.
         // 
-        // Error catcher
+        // Error catcher for api 1
         // "We Couldn't Fetch a movie with that sub-genre"
         // Error 422
         // 
+        // Error cather for api
+        //  api 2 Error = 404
+        // Img not found
+
     })
     .catch(function (err) {
         console.error(err);
