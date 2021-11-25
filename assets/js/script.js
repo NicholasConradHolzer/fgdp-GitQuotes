@@ -63,6 +63,7 @@ var parameters = function (event){
             console.log(imgEl)
             var contentGenerator = function() {
             var contentLander= document.getElementById("contentLander")
+            contentLander.innerHTML=""
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
             var titleContent = document.createElement("h2")
