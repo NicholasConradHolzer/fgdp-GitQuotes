@@ -66,6 +66,7 @@ var parameters = function (event){
             contentLander.innerHTML=""
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
+            posterItem.classList.add("w-64")
             var titleContent = document.createElement("h2")
             titleContent.classList ="content"
             titleContent.textContent = (movieTitle);
