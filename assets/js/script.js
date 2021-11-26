@@ -64,13 +64,18 @@ var parameters = function (event){
         // to get poster
         fetch(poster)
         .then(function(res3){
-        return res3.json();
+            return res3.json();
         })
         .then(function(poster){
             console.log(poster)
-            var imgEl= poster.Poster
-            console.log(imgEl)
+            if(poster.Response == "False"){
+                console.log("hello")
+                var imgEl = "./assets/imgs/NoPoster.png"
+            }
+            else{var imgEl= poster.Poster}
             var contentGenerator = function() {
+            console.log(imgEl)
+            
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
             posterItem.classList.add("w-64")
@@ -83,13 +88,6 @@ var parameters = function (event){
         // Populate title, tagline (mayber other info?) from first api, populate
         //  poster with second api.
         // 
-        // Error catcher for api 1
-        // "We Couldn't Fetch a movie with that sub-genre"
-        // Error 422
-        // 
-        // Error cather for api
-        //  api 2 Error = 404
-        // Img not found
 
     })
     .catch(function (err) {
