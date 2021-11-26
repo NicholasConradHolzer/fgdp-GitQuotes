@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Random Movie</title>
 </head>
-<body>
+<body class="relative min-h-screen">
     <header class="my-10 -mx-15">
         <h1 class="text-gray-200 text-6xl text-center">Get A Random Movie</h1>
         <br>
         <p class=" text-gray-200 text-center text-lg">Discover something new and amazing to watch.</p>
     </header>
 
-    <main>
+    <main class= "pb-9">
         <section class="bg-danger bg-opacity-5 justify-center">
             <div class="flex flex-wrap justify-center gap-4">
                 <div class="p-2 bg-gray-600 bg-opacity-95 rounded">
@@ -77,24 +77,24 @@
                 <option>120+</option>
             </select> -->
             <h2 class="text-gray-200 text-center">Press the Button Below to find the Right Movie</h2>
-            <container class="flex flex-col justify-center items-center my-5" id="contentLander"></container>
             <div class="flex justify-center my-5">
                 <button id="randmovie" class=" btn text-gray-200 bg-black rounded ring ring-gray-600 ring-offset-4 ring-offset-gray-100" type="submit">Find Your movie</button>
             </div>
+            <container class="flex flex-col justify-center items-center my-10" id="contentLander"></container>
         </section>
     </main>
 
 
-    <!-- <footer class="absolute w-full bottom-0 place-content-center p-2 bg-gray-600 bg-opacity-95">
+    <footer class="absolute w-full bottom-0 place-content-center bg-gray-600 bg-opacity-95">
         <div class="flex flex-col justify-center items-center">
             <h4>Website Authors and Acknowledgements: </h4>
             <p>
                 Cody Junier,
                 Michael Coleman,
                 Nicholas Holzer</p><p>
-                This product uses the TMDB API but is not endorsed or certified by <a href=https://www.themoviedb.org/><img src="./assets/imgs/TMDBlogo.svg" class="tmdb"></img>
+                This product uses the TMDB API but is not endorsed or certified by <a href=https://www.themoviedb.org/><img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" class="tmdb"></img>
             </a></p></div>
-    </footer> -->
+    </footer>
 
     <script src="./assets/js/script.js"></script>
 </body>

@@ -10,5 +10,7 @@ body {
 
 #contentLander h2{
     color: lightgray;
-    font-size: 55px
+    font-size: 55px;
+    background-color: black;
+    border-radius: 25px
 }
