@@ -9,9 +9,10 @@ var parameters = function (event){
     var subGenreSelected = ("," + subGenreEl.options[subGenreEl.selectedIndex].value);
     var contentLander= document.getElementById("contentLander")
     contentLander.innerHTML="";
-    var titleContent = document.createElement("h2");
+    var titleContent = document.createElement("a");
     titleContent.classList.add("carderizer")
     titleContent.classList.add("cardborder")
+    titleContent.classList.add("titlesend")
     parseInt(genreSelected , subGenreSelected);
     if (subGenreSelected===0) {
         var subGenreSelected = ""
