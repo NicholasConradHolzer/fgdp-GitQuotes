@@ -106,8 +106,8 @@ var parameters = function (event){
 }
 
 clickbtn.addEventListener("click", parameters);
-
-
+//Name Collecter
+/** ----------------------------------------------------------------*/
 var modalEl = document.getElementById("modal")
 var userNameEl = document.getElementById("userName")
 var headerEl = document.getElementById("header")
@@ -136,6 +136,7 @@ userNameEl.addEventListener("submit", function(event){
     headerEl.appendChild(greeting)
 
 })
+/*----------------------------------------------------------------*/
 // div id="modal">
 //         <form id="userName">
 //             <input placeholder="First Name"/>
