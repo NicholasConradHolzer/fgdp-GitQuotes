@@ -103,3 +103,38 @@ var parameters = function (event){
 }
 
 clickbtn.addEventListener("click", parameters);
+
+
+var modalEl = document.getElementById("modal")
+var userNameEl = document.getElementById("userName")
+var headerEl = document.getElementById("header")
+console.log(headerEl)
+var savedName = localStorage.getItem("User")? localStorage.getItem("User"): "";
+var viewModal = function(){
+    if(savedName ==""){
+        modalEl.setAttribute("style", "display:flex")
+    }
+    else{
+        var greeting = document.createElement("H1")
+        greeting.innerText= "Hello, "+ savedName
+        headerEl.appendChild(greeting)
+    }
+}
+viewModal();
+userNameEl.addEventListener("submit", function(event){
+    event.preventDefault();
+    var name = event.target.children[0].value;
+    localStorage.setItem("User", name);
+    
+    modalEl.setAttribute("style", "display:none")
+    var greeting = document.createElement("H1")
+    greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
+    console.log(greeting)
+    headerEl.appendChild(greeting)
+
+})
+// div id="modal">
+//         <form id="userName">
+//             <input placeholder="First Name"/>
+//             <button type="submit">Submit</button>
+//         </form>

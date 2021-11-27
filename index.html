@@ -10,11 +10,17 @@
     <title>Random Movie</title>
 </head>
 <body class="relative min-h-screen">
-    <header class="my-10 -mx-15">
-        <h1 class="text-gray-200 text-6xl text-center">Get A Random Movie</h1>
+    <header id="header" class="my-10 -mx-15">
+        <h1 class="text-gray-200 text-6xl text-center">Movie Fetch</h1>
         <br>
-        <p class=" text-gray-200 text-center text-lg">Discover something new and amazing to watch.</p>
+        <p class=" text-gray-200 text-center text-lg"></p>
     </header>
+    <div id="modal">
+        <form id="userName">
+            <input placeholder="First Name"/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
     <main class= "pb-9">
         <section class="bg-danger bg-opacity-5 justify-center">
@@ -76,7 +82,6 @@
                 <option>90-120</option>
                 <option>120+</option>
             </select> -->
-            <h2 class="text-gray-200 text-center">Press the Button Below to find the Right Movie</h2>
             <div class="flex justify-center my-5">
                 <button id="randmovie" class=" btn text-gray-200 bg-black rounded ring ring-gray-600 ring-offset-4 ring-offset-gray-100" type="submit">Find Your movie</button>
             </div>

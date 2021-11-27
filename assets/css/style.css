@@ -14,3 +14,15 @@ body {
     background-color: black;
     border-radius: 25px
 }
+
+#modal{
+    display: none ;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 89, 255, 0.774);
+}
