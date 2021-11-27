@@ -10,6 +10,8 @@ var parameters = function (event){
     var contentLander= document.getElementById("contentLander")
     contentLander.innerHTML="";
     var titleContent = document.createElement("h2");
+    titleContent.classList.add("carderizer")
+    titleContent.classList.add("cardborder")
     parseInt(genreSelected , subGenreSelected);
     if (subGenreSelected===0) {
         var subGenreSelected = ""
