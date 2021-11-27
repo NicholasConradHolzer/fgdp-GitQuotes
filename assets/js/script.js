@@ -116,7 +116,7 @@ var viewModal = function(){
     }
     else{
         var greeting = document.createElement("H1")
-        greeting.innerText= "Hello, "+ savedName
+        greeting.innerText= "Hello, "+ savedName + " click the button below to find a random movie!"
         headerEl.appendChild(greeting)
     }
 }
@@ -133,8 +133,3 @@ userNameEl.addEventListener("submit", function(event){
     headerEl.appendChild(greeting)
 
 })
-// div id="modal">
-//         <form id="userName">
-//             <input placeholder="First Name"/>
-//             <button type="submit">Submit</button>
-//         </form>
