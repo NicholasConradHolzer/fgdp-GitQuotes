@@ -1,5 +1,9 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 body {
     background-image: url("https://github.com/NicholasConradHolzer/fgdp-GitQuotes/blob/main/assets/imgs/movie-bg.jpg?raw=true");
+    background-size: cover;
 }
 
 .tmdb {
@@ -7,12 +11,22 @@ body {
     width: 50px;
     height:15px;
 }
-
-#contentLander h2{
-    color: lightgray;
-    font-size: 55px;
-    background-color: black;
+.carderizer {
+    color: rgb(23, 22, 0);
+    background-color: gold;
     border-radius: 25px
+}
+.cardborder {
+    border-width: 5px;
+    border-color: goldenrod;
+}
+.headsize {
+    font-size: 20px;
+    color: gold;
+    margin-left: 5px;
+}
+#contentLander h2{
+    font-size: 55px;
 }
 
 #modal{
@@ -25,4 +39,11 @@ body {
     right: 0;
     top: 0;
     background-color: rgba(0, 89, 255, 0.774);
+}
+.aboutcard {
+    color: rgb(23, 22, 0);
+    background-color: goldenrod;
+    border-width: 5px;
+    border-color: gold;
+    border-radius: 25px;
 }
