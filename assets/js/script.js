@@ -52,7 +52,7 @@ var parameters = function (event){
     .then(function(res2) {
         console.log(res2)
         if(res2.ok === false){
-            titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, </p><a id='nofindreset' href='index.html'>Please Try Again.</a>";
+            titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, <a id='nofindreset' href='index.html'>Please Try Again.</a></p>";
             contentLander.appendChild(titleContent);
             console.log("hello")
         }
@@ -114,8 +114,8 @@ var parameters = function (event){
 }
 
 clickbtn.addEventListener("click", parameters);
-// clickbtn.onclick = function() {
-// }
+
+// var randHistory =function(rand)
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var modalEl = document.getElementById("modal")

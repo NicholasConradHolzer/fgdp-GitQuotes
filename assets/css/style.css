@@ -48,5 +48,11 @@ body {
     border-radius: 25px;
 }
 #nofindreset {
+    display: inline;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: lightskyblue;
+    padding: 3px;
+    border-width: 2px;
+    border-color: indigo;
+    border-radius: 5px;
 }
