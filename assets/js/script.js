@@ -9,6 +9,8 @@ var parameters = function (event){
     var subGenreSelected = ("," + subGenreEl.options[subGenreEl.selectedIndex].value);
     var contentLander= document.getElementById("contentLander")
     contentLander.innerHTML="";
+    document.getElementById("randmovie").disabled = true;
+    document.getElementById("randmovie").style.opacity="0.5";
     var titleContent = document.createElement("a");
     titleContent.classList.add("carderizer")
     titleContent.classList.add("cardborder")
@@ -50,7 +52,7 @@ var parameters = function (event){
     .then(function(res2) {
         console.log(res2)
         if(res2.ok === false){
-            titleContent.textContent= "We Could Not Fetch a Movie with that Sub-Genre, Please Try Again.";
+            titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, </p><a id='nofindreset' href='index.html'>Please Try Again.</a>";
             contentLander.appendChild(titleContent);
             console.log("hello")
         }
@@ -59,8 +61,12 @@ var parameters = function (event){
     .then(function (conciseData){
         console.log(conciseData.results[randomResultfromPage])
         var movie = conciseData.results[randomResultfromPage]
+        var MovieId= movie.id
         var movieTitle= movie.title
+        var linkify = "https://www.themoviedb.org/movie/" + MovieId + "-" + movieTitle + "?language=en-US"
         console.log(movieTitle)
+        titleContent.target = '_blank'
+        titleContent.href = linkify
         var poster=apiPoster+movieTitle
         console.log(poster)
         // get title from second api call, pass it through second api (omdb) 
@@ -87,6 +93,8 @@ var parameters = function (event){
             contentLander.appendChild(posterItem);
             }
             contentGenerator();
+            document.getElementById("randmovie").disabled = false;
+            document.getElementById("randmovie").style.opacity="1";
         })
         // Populate title, tagline (mayber other info?) from first api, populate
         //  poster with second api.
@@ -106,6 +114,8 @@ var parameters = function (event){
 }
 
 clickbtn.addEventListener("click", parameters);
+// clickbtn.onclick = function() {
+// }
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var modalEl = document.getElementById("modal")
