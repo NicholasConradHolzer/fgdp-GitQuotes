@@ -15,23 +15,23 @@
         <a href="about.html" class="headsize">About</a>
     </header>
     
-    <div class="flex justify-center" id="modal">
-        <form id="userName">
+    <div class="flex flex-col" id="modal">
+        <div class="flex justify-center place-items-center">
             <h1 class="text-gray-200 text-6xl text-center carderizer cardborder">Welcome to MovieFetch</h1>
+        </div>
+        <div class="flex justify-center">
             <p class="text-center text-black my-5">Please type your name</p>
-            <div class="flex justify-center">
-                <input placeholder="First Name"/>
-            </div>
-            <div class="flex justify-center">
-                <button class=" carderizer cardborder mt-8" type="submit">Submit</button>
-            </div>
+        </div>
+        <form class="flex flex-col" id="userName">
+            <input placeholder="First Name"/>
+            <button class=" carderizer cardborder mt-8" type="submit">Submit</button>
         </form>
     </div>
     
     <div id="historybar" class="flex flex-row"></div>
     
     <section class="my-10 -mx-15">
-        <h1 class="text-gray-200 text-6xl text-center carderizer cardborder">MovieFetch</h1>
+        <h1 id="usertitle" class="text-gray-200 text-6xl text-center carderizer cardborder">MovieFetch</h1>
         <br>
         <!-- <p class=" text-gray-200 text-center text-lg" id="byegreeter">Discover something new and amazing to watch.</p> -->
     </section>

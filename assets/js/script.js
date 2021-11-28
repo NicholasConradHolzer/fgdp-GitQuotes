@@ -133,19 +133,23 @@ clickbtn.addEventListener("click", parameters);
 // }
 //Name Collecter
 /** ----------------------------------------------------------------*/
+var titleEl = document.getElementById("usertitle")
+console.log(titleEl.innerHTML);
 var modalEl = document.getElementById("modal")
 var userNameEl = document.getElementById("userName")
 var headerEl = document.getElementById("header")
 console.log(headerEl)
 var savedName = localStorage.getItem("User")? localStorage.getItem("User"): "";
+console.log(savedName);
 var viewModal = function(){
     if(savedName ==""){
         modalEl.setAttribute("style", "display:flex")
     }
     else{
-        var greeting = document.createElement("H1")
-        greeting.innerText= "Hello, "+ savedName + " click the button below to find a random movie!"
-        headerEl.appendChild(greeting)
+       // var greeting = document.createElement("H1")
+        titleEl.textContent = "MovieFetch for " + savedName;
+        //greeting.innerText= "Hello, "+ savedName + " click the button below to find a random movie!"
+        //headerEl.appendChild(greeting)
     }
 }
 viewModal();
@@ -155,9 +159,16 @@ userNameEl.addEventListener("submit", function(event){
     localStorage.setItem("User", name);
     
     modalEl.setAttribute("style", "display:none")
-    var greeting = document.createElement("H1")
-    greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
-    console.log(greeting)
-    headerEl.appendChild(greeting)
+    titleEl.textContent = "MovieFetch for " + name;
+    //var greeting = document.createElement("H1")
+   // greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
+    //console.log(greeting)
+   // headerEl.appendChild(greeting)
 
 })
+//<section class="my-10 -mx-15">
+ //       <h1 class="text-gray-200 text-6xl text-center carderizer cardborder">MovieFetch</h1>
+   //     <br>
+  //      <!-- <p class=" text-gray-200 text-center text-lg" id="byegreeter">Discover something new and amazing to watch.</p> -->
+//</section>
+
