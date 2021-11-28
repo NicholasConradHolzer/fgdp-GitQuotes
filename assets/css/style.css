@@ -38,7 +38,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    background-color: rgba(0, 89, 255, 0.774);
+    background-image: url(../imgs/modal.jpg);
 }
 .aboutcard {
     color: rgb(23, 22, 0);
@@ -56,3 +56,4 @@ body {
     border-color: indigo;
     border-radius: 5px;
 }
+
