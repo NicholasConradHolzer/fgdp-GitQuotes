@@ -3,7 +3,7 @@ The purpose of this website is to randomly generate a movie based on limited par
 
 https://nicholasconradholzer.github.io/fgdp-GitQuotes/
 
-![background for webpage](assets/imgs\READMESshot.PNG)
+![background for webpage](assets/imgs/READMESshot.PNG)
 
 MIT License
 
