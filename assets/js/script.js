@@ -22,6 +22,7 @@ var parameters = function (event){
     var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
     "&language=en&with_genres=" + genreSelected + subGenreSelected;
     event.preventDefault();
+    // Initial api call to find ALL movies of selected genres
     fetch(apiGenreURL)
     .then(function(res) {
     return res.json();
@@ -46,11 +47,10 @@ var parameters = function (event){
         // movie position in array
         var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
         "&language=en&with_genres=" + genreSelected + subGenreSelected +"&page=" +RandomResultsPage;
-        console.log(apiGenreURL);
         // call api again with that info
         fetch(apiGenreURL)
     .then(function(res2) {
-        console.log(res2)
+        // Error Handling
         if(res2.ok === false){
             titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, <a id='nofindreset' href='index.html'>Please Try Again.</a></p>";
             contentLander.appendChild(titleContent);
@@ -59,16 +59,14 @@ var parameters = function (event){
         return res2.json();
     })
     .then(function (conciseData){
-        console.log(conciseData.results[randomResultfromPage])
+        // construct url for api call with specific movie title
         var movie = conciseData.results[randomResultfromPage]
         var MovieId= movie.id
         var movieTitle= movie.title
         var linkify = "https://www.themoviedb.org/movie/" + MovieId + "-" + movieTitle + "?language=en-US"
-        console.log(movieTitle)
         titleContent.target = '_blank'
         titleContent.href = linkify
         var poster=apiPoster+movieTitle
-        console.log(poster)
         // get title from second api call, pass it through second api (omdb) 
         // to get poster
         fetch(poster)
@@ -82,9 +80,8 @@ var parameters = function (event){
                 var imgEl = "./assets/imgs/NoPoster.png"
             }
             else{var imgEl= poster.Poster}
+            // Show the movie info
             var contentGenerator = function() {
-            console.log(imgEl)
-            
             var posterItem = document.createElement("img");
             posterItem.src = imgEl;
             posterItem.classList.add("w-64")
@@ -152,23 +149,21 @@ var headerEl = document.getElementById("header")
 console.log(headerEl)
 var savedName = localStorage.getItem("User")? localStorage.getItem("User"): "";
 console.log(savedName);
+// Grab User input for personalization
 var viewModal = function(){
-    
+    // Check to see if user has visited site before, and prompt for name if first time
     if(savedName ==""){
         modalEl.setAttribute("style", "display:flex")
     }
-
     else{
-       // var greeting = document.createElement("H1")
         titleEl.textContent = "MovieFetch for " + savedName;
-        //greeting.innerText= "Hello, "+ savedName + " click the button below to find a random movie!"
-        //headerEl.appendChild(greeting)
     }
 }
 viewModal();
 userNameEl.addEventListener("submit", function(event){
     event.preventDefault();
     var name = event.target.children[0].value;
+    // Error Handling if button is clicked without providing name
     if(name == "" || name ==="null") {
         var nameSlot = document.getElementById("nameslot")
         nameSlot.placeholder="Name Must be Submitted"
