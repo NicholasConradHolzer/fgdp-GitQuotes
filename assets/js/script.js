@@ -147,6 +147,7 @@ var viewModal = function(){
     }
     else{
        // var greeting = document.createElement("H1")
+       //add savedName to the title
         titleEl.textContent = "MovieFetch for " + savedName;
         //greeting.innerText= "Hello, "+ savedName + " click the button below to find a random movie!"
         //headerEl.appendChild(greeting)
@@ -159,6 +160,7 @@ userNameEl.addEventListener("submit", function(event){
     localStorage.setItem("User", name);
     
     modalEl.setAttribute("style", "display:none")
+    //add your name to the title once submitted
     titleEl.textContent = "MovieFetch for " + name;
     //var greeting = document.createElement("H1")
    // greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
