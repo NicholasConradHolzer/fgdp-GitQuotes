@@ -156,6 +156,8 @@ var viewModal = function(){
         modalEl.setAttribute("style", "display:flex")
     }
     else{
+       // var greeting = document.createElement("H1")
+       //add savedName to the title
         titleEl.textContent = "MovieFetch for " + savedName;
     }
 }
@@ -172,7 +174,8 @@ userNameEl.addEventListener("submit", function(event){
     localStorage.setItem("User", name);
     
     modalEl.setAttribute("style", "display:none")
-    titleEl.textContent = "MovieFetch for " + name;
+    //add your name to the title once submitted
+     titleEl.textContent = "MovieFetch for " + name;
     //var greeting = document.createElement("H1")
    // greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
     //console.log(greeting)
