@@ -116,32 +116,32 @@ var parameters = function (event){
 clickbtn.addEventListener("click", parameters);
 
 
-var historyBar = document.getElementById("historybar");
-var historyArray = JSON.parse(localStorage.getItem("History")) || [];
-console.log(historyArray);
-var randHistory = function(rand) {
-    if(historyArray.indexOf(rand)<0) {
-    historyArray.push(rand)
-    localStorage.setItem("History", JSON.stringify(historyArray))
-    historyLinks();
-};
-}
+// var historyBar = document.getElementById("historybar");
+// var historyArray = JSON.parse(localStorage.getItem("History")) || [];
+// console.log(historyArray);
+// var randHistory = function(rand) {
+//     if(historyArray.indexOf(rand)<0) {
+//     historyArray.push(rand)
+//     localStorage.setItem("History", JSON.stringify(historyArray))
+//     historyLinks();
+// };
+// }
 
-var historyLinks = function() {
-    historyBar.innerHTML = "";
-    historyArray.forEach(rand => {
-        var oldLink = document.createElement("a");
-        oldLink.className = "(PLACEHOLDER)"
-        oldLink.id=rand;
-        oldLink.innerText=rand;
-        oldLink.addEventListener("click", function(event){
-            var cinema = event.target.id;
-            parameters(cinema);
-        })
-        historyBar.appendChild(oldLink);
-    })
-}
-historyLinks();
+// var historyLinks = function() {
+//     historyBar.innerHTML = "";
+//     historyArray.forEach(rand => {
+//         var oldLink = document.createElement("a");
+//         oldLink.className = "(PLACEHOLDER)"
+//         oldLink.id=rand;
+//         oldLink.innerText=rand;
+//         oldLink.addEventListener("click", function(event){
+//             var cinema = event.target.id;
+//             parameters(cinema);
+//         })
+//         historyBar.appendChild(oldLink);
+//     })
+// }
+// historyLinks();
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var titleEl = document.getElementById("usertitle")
@@ -153,9 +153,11 @@ console.log(headerEl)
 var savedName = localStorage.getItem("User")? localStorage.getItem("User"): "";
 console.log(savedName);
 var viewModal = function(){
+    
     if(savedName ==""){
         modalEl.setAttribute("style", "display:flex")
     }
+
     else{
        // var greeting = document.createElement("H1")
         titleEl.textContent = "MovieFetch for " + savedName;
@@ -167,6 +169,11 @@ viewModal();
 userNameEl.addEventListener("submit", function(event){
     event.preventDefault();
     var name = event.target.children[0].value;
+    if(name == "" || name ==="null") {
+        var nameSlot = document.getElementById("nameslot")
+        nameSlot.placeholder="Name Must be Submitted"
+        return;
+    }
     localStorage.setItem("User", name);
     
     modalEl.setAttribute("style", "display:none")
