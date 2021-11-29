@@ -11,10 +11,14 @@ var parameters = function (event){
     contentLander.innerHTML="";
     document.getElementById("randmovie").disabled = true;
     document.getElementById("randmovie").style.opacity="0.5";
+    
+    
     var titleContent = document.createElement("a");
     titleContent.classList.add("carderizer")
     titleContent.classList.add("cardborder")
     titleContent.classList.add("titlesend")
+
+
     parseInt(genreSelected , subGenreSelected);
     if (subGenreSelected===0) {
         var subGenreSelected = ""
@@ -51,6 +55,7 @@ var parameters = function (event){
         fetch(apiGenreURL)
     .then(function(res2) {
         console.log(res2)
+
         if(res2.ok === false){
             titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, <a id='nofindreset' href='index.html'>Please Try Again.</a></p>";
             contentLander.appendChild(titleContent);
@@ -63,11 +68,19 @@ var parameters = function (event){
         var movie = conciseData.results[randomResultfromPage]
         var MovieId= movie.id
         var movieTitle= movie.title
+        
         var linkify = "https://www.themoviedb.org/movie/" + MovieId + "-" + movieTitle + "?language=en-US"
+        
+        if (movie.status_code!=="34") {
+            randHistory(movieTitle);
+        }
         console.log(movieTitle)
+        console.log("linkify " + linkify)
         titleContent.target = '_blank'
+        
         titleContent.href = linkify
-        var poster=apiPoster+movieTitle
+        
+        var poster=apiPoster + movieTitle
         console.log(poster)
         // get title from second api call, pass it through second api (omdb) 
         // to get poster
@@ -82,7 +95,7 @@ var parameters = function (event){
                 var imgEl = "./assets/imgs/NoPoster.png"
             }
             else{var imgEl= poster.Poster}
-            var contentGenerator = function() {
+        var contentGenerator = function() {
             console.log(imgEl)
             
             var posterItem = document.createElement("img");
@@ -116,9 +129,9 @@ var parameters = function (event){
 clickbtn.addEventListener("click", parameters);
 
 
-var historyBar = document.getElementById("historybar");
 var historyArray = JSON.parse(localStorage.getItem("History")) || [];
-console.log(historyArray);
+var historyBar = document.getElementById("historybar");
+console.log("tigbit"+ historyArray);
 var randHistory = function(rand) {
     if(historyArray.indexOf(rand)<0) {
     historyArray.push(rand)
@@ -131,8 +144,7 @@ var historyLinks = function() {
     historyBar.innerHTML = "";
     historyArray.forEach(rand => {
         var oldLink = document.createElement("a");
-        oldLink.className = "(PLACEHOLDER)"
-        oldLink.id=rand;
+        oldLink.href=rand.linkify;
         oldLink.innerText=rand;
         oldLink.addEventListener("click", function(event){
             var cinema = event.target.id;
