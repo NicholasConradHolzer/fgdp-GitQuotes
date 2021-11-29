@@ -2,8 +2,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body {
-    background-image: url("https://github.com/NicholasConradHolzer/fgdp-GitQuotes/blob/main/assets/imgs/movie-bg.jpg?raw=true");
+    background-image: url(../imgs/newbg.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .tmdb {
@@ -38,7 +40,7 @@ body {
     left: 0;
     right: 0;
     top: 0;
-    background-color: rgba(0, 89, 255, 0.774);
+    background-image: url(../imgs/modal.jpg);
 }
 .aboutcard {
     color: rgb(23, 22, 0);
