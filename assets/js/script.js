@@ -33,21 +33,16 @@ var parameters = function (event){
     return res.json();
     })
     .then(function (data){
-        console.log(data);
         var resultsParam= data.total_results
-        console.log(resultsParam);
         // Use resultsParam to randomly select a movie
         var randomResult= Math.floor(Math.random()*resultsParam);
-        console.log(randomResult)
         // Max results per page = 20
         // we will want to divide resultsParam by 20( example 35/20= 1.75),
         //  drop the decimal values, then add 1 to get the page number
         var RandomResultsPage= Math.ceil(randomResult/20)
-        console.log(RandomResultsPage)
         // once we have a page number, we want to randomly select a number 1-20,
         //  subtract 1, (or randInt 0-19) to get a random title
         var randomResultfromPage= Math.floor(Math.random()*20)
-        console.log(randomResultfromPage)
         // Take random page, add it to api search/call with random 
         // movie position in array
         var apiGenreURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + 
@@ -60,7 +55,6 @@ var parameters = function (event){
             //61: provides link back to homepage to reset selectables conveniently
             titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, <a id='nofindreset' href='index.html'>Please Try Again.</a></p>";
             contentLander.appendChild(titleContent);
-            console.log("hello")
         }
         return res2.json();
     })
@@ -81,9 +75,7 @@ var parameters = function (event){
             return res3.json();
         })
         .then(function(poster){
-            console.log(poster)
             if(poster.Response == "False"){
-                console.log("hello")
                 var imgEl = "./assets/imgs/NoPoster.png"
             }
             else{var imgEl= poster.Poster}
@@ -114,8 +106,6 @@ var parameters = function (event){
         console.error(err);
     })
     
-    console.log(genreSelected)
-    console.log(subGenreSelected);
 }
 
 clickbtn.addEventListener("click", parameters);
@@ -125,13 +115,10 @@ clickbtn.addEventListener("click", parameters);
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var titleEl = document.getElementById("usertitle")
-console.log(titleEl.innerHTML);
 var modalEl = document.getElementById("modal")
 var userNameEl = document.getElementById("userName")
 var headerEl = document.getElementById("header")
-console.log(headerEl)
 var savedName = localStorage.getItem("User")? localStorage.getItem("User"): "";
-console.log(savedName);
 // Grab User input for personalization
 var viewModal = function(){
     // Check to see if user has visited site before, and prompt for name if first time
