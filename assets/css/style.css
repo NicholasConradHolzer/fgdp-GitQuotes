@@ -8,12 +8,12 @@ body {
     background-position: center;
 }
 
-.tmdb {
+.tmdb { 
     display: inline;
     width: 50px;
     height:15px;
 }
-.carderizer {
+.carderizer { 
     color: rgb(23, 22, 0);
     background-color: gold;
     border-radius: 25px
@@ -22,15 +22,21 @@ body {
     border-width: 5px;
     border-color: goldenrod;
 }
-.headsize {
+.headsize { 
     font-size: 20px;
     color: gold;
     margin-left: 5px;
 }
+/*Used to control the size attributes of the anchor tag for the generated title text; to give it h2 analogous styling*/
+.titlesend { 
+    font-size: 30px;
+    padding: 0 5px;
+    color: rgb(37, 1, 37);
+    font-weight: 800;
+}
 #contentLander h2{
     font-size: 55px;
 }
-
 #modal{
     display: none ;
     justify-content: center;
@@ -43,6 +49,8 @@ body {
     background-image: url(../imgs/modal.jpg);
 }
 .aboutcard {
+    padding-top: 5px;
+    margin: 25px auto;
     color: rgb(23, 22, 0);
     background-color: goldenrod;
     border-width: 5px;
@@ -61,4 +69,36 @@ body {
 #historybar {
     border-width: 20px;
     background-color: lightsalmon;
+}
+.aboutcard a {
+    color: rgb(73, 73, 73);
+}
+.groupmem {
+    text-align: center;
+    padding: 5px;
+    display: block;
+    background-color: ivory;
+    border-color: darkblue;
+    border-width: 2px;
+    border-radius: 15px;
+}
+.groupmem a {
+    font-weight: bold;
+    color: darkmagenta;
+}
+.abouthead {
+    font-size: 35px;;
+}
+.aboutfoot {
+    margin-top: 50px;
+}
+
+.atrlink {
+    display: inline;
+    width: 100px;
+    height:30px;
+    background-color: #0d253f;
+    padding: 4px 0 5px 0;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }

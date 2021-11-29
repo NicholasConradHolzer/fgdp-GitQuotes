@@ -8,13 +8,18 @@ var parameters = function (event){
     var genreSelected = genreEl.options[genreEl.selectedIndex].value;
     var subGenreSelected = ("," + subGenreEl.options[subGenreEl.selectedIndex].value);
     var contentLander= document.getElementById("contentLander")
+    //removes previous generated movie before adding next movie
     contentLander.innerHTML="";
+    //14, 15: disables the click until a random movie has generated to avoid double loading random movies (reverts with lines: 101, 102)
     document.getElementById("randmovie").disabled = true;
     document.getElementById("randmovie").style.opacity="0.5";
+    //18: Adds a title element that can be made into a link to TMDB's description of the movie; including poster, trailer links, and places the movie can be viewed.
+    //link is generated on lines: 73, 74, 75
     var titleContent = document.createElement("a");
     titleContent.classList.add("carderizer")
     titleContent.classList.add("cardborder")
     titleContent.classList.add("titlesend")
+    //genres are found through genre id's; used as our value in our select tag options
     parseInt(genreSelected , subGenreSelected);
     if (subGenreSelected===0) {
         var subGenreSelected = ""
@@ -52,6 +57,7 @@ var parameters = function (event){
     .then(function(res2) {
         // Error Handling
         if(res2.ok === false){
+            //61: provides link back to homepage to reset selectables conveniently
             titleContent.innerHTML = "<p>We Could Not Fetch a Movie with that Sub-Genre, <a id='nofindreset' href='index.html'>Please Try Again.</a></p>";
             contentLander.appendChild(titleContent);
             console.log("hello")
@@ -63,6 +69,7 @@ var parameters = function (event){
         var movie = conciseData.results[randomResultfromPage]
         var MovieId= movie.id
         var movieTitle= movie.title
+        //73, 74, 75: this is where the link is applied to the anchor tag on line: 18
         var linkify = "https://www.themoviedb.org/movie/" + MovieId + "-" + movieTitle + "?language=en-US"
         titleContent.target = '_blank'
         titleContent.href = linkify
@@ -90,6 +97,7 @@ var parameters = function (event){
             contentLander.appendChild(posterItem);
             }
             contentGenerator();
+            //101, 102: undoes second click disable as per lines: 14, 15
             document.getElementById("randmovie").disabled = false;
             document.getElementById("randmovie").style.opacity="1";
         })
@@ -113,32 +121,7 @@ var parameters = function (event){
 clickbtn.addEventListener("click", parameters);
 
 
-// var historyBar = document.getElementById("historybar");
-// var historyArray = JSON.parse(localStorage.getItem("History")) || [];
-// console.log(historyArray);
-// var randHistory = function(rand) {
-//     if(historyArray.indexOf(rand)<0) {
-//     historyArray.push(rand)
-//     localStorage.setItem("History", JSON.stringify(historyArray))
-//     historyLinks();
-// };
-// }
 
-// var historyLinks = function() {
-//     historyBar.innerHTML = "";
-//     historyArray.forEach(rand => {
-//         var oldLink = document.createElement("a");
-//         oldLink.className = "(PLACEHOLDER)"
-//         oldLink.id=rand;
-//         oldLink.innerText=rand;
-//         oldLink.addEventListener("click", function(event){
-//             var cinema = event.target.id;
-//             parameters(cinema);
-//         })
-//         historyBar.appendChild(oldLink);
-//     })
-// }
-// historyLinks();
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var titleEl = document.getElementById("usertitle")
@@ -173,15 +156,7 @@ userNameEl.addEventListener("submit", function(event){
     
     modalEl.setAttribute("style", "display:none")
     titleEl.textContent = "MovieFetch for " + name;
-    //var greeting = document.createElement("H1")
-   // greeting.innerText= "Hello, "+ name + " click the button below to find a random movie!"
-    //console.log(greeting)
-   // headerEl.appendChild(greeting)
 
 })
-//<section class="my-10 -mx-15">
- //       <h1 class="text-gray-200 text-6xl text-center carderizer cardborder">MovieFetch</h1>
-   //     <br>
-  //      <!-- <p class=" text-gray-200 text-center text-lg" id="byegreeter">Discover something new and amazing to watch.</p> -->
-//</section>
+
 
