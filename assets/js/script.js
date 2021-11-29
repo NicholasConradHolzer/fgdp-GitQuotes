@@ -114,23 +114,34 @@ var parameters = function (event){
 }
 
 clickbtn.addEventListener("click", parameters);
-// var historyArray = JSON.parse(localStorage.getItem(History)) || [];
-// var randHistory = function(rand) {
-//     if(historyArray.indexOf(city)<0) {
-//     historyArray.push(rand)
-//     localStorage.setItem("History", JSON.stringify(historyArray))
-//     historyLinks();
-// };
-// console.log(historyArray)
-// }
-// var historyBar = document.getElementById("historybar");
-// var historyLinks = function() {
-//     historyBar.innerHTML = "";
-//     historyArray.forEach(city => {
-//         var oldLink = document.createElement("a");
-//         oldLink.className = "(PLACEHOLDER)"
-//     })
-// }
+
+
+var historyBar = document.getElementById("historybar");
+var historyArray = JSON.parse(localStorage.getItem("History")) || [];
+console.log(historyArray);
+var randHistory = function(rand) {
+    if(historyArray.indexOf(rand)<0) {
+    historyArray.push(rand)
+    localStorage.setItem("History", JSON.stringify(historyArray))
+    historyLinks();
+};
+}
+
+var historyLinks = function() {
+    historyBar.innerHTML = "";
+    historyArray.forEach(rand => {
+        var oldLink = document.createElement("a");
+        oldLink.className = "(PLACEHOLDER)"
+        oldLink.id=rand;
+        oldLink.innerText=rand;
+        oldLink.addEventListener("click", function(event){
+            var cinema = event.target.id;
+            parameters(cinema);
+        })
+        historyBar.appendChild(oldLink);
+    })
+}
+historyLinks();
 //Name Collecter
 /** ----------------------------------------------------------------*/
 var modalEl = document.getElementById("modal")

@@ -56,3 +56,7 @@ body {
     border-color: indigo;
     border-radius: 5px;
 }
+#historybar {
+    border-width: 20px;
+    background-color: lightsalmon;
+}
