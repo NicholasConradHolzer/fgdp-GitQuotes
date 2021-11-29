@@ -139,6 +139,8 @@ var viewModal = function(){
         modalEl.setAttribute("style", "display:flex")
     }
     else{
+       // var greeting = document.createElement("H1")
+       //add savedName to the title
         titleEl.textContent = "MovieFetch for " + savedName;
     }
 }
